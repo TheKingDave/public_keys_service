@@ -12,16 +12,23 @@ class GithubKeyService implements KeyService {
   Future<List<String>> getKeys(String user) async {
     user = user.toLowerCase();
 
-    if (!userNameRegex.hasMatch(user.toLowerCase())) {
+    if (!userNameRegex.hasMatch(user)) {
+      print("Wrong username: $user");
       throw HttpException(
           HttpStatus.badRequest, 'Wrong username format for service');
     }
 
-    final uri = Uri.https('api.github.com', '/users/$user/keys');
+    final uri = Uri.https('api.github.com', '/users/${user}/keys');
     final resp = await http.get(uri);
 
-    final decode = json.decode(resp.body) as List<dynamic>;
+    final decode = json.decode(resp.body);
+    if(decode is Map) {
+      print(decode);
+      throw HttpException(HttpStatus.badRequest, 'This user does not exist in this service');
+    }
 
-    return List.from(decode.map((e) => e['key']));
+    final keys = decode as List<dynamic>;
+
+    return List.from(keys.map((e) => e['key']));
   }
 }
