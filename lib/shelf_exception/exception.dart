@@ -1,4 +1,4 @@
-import 'dart:html';
+import 'dart:io';
 
 /// HTTP exception enables to immediately stop request execution
 /// and send an appropriate error message to the client. An option
