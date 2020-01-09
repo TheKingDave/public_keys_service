@@ -14,8 +14,9 @@ final Map<String, KeyService Function()> services = {
 Router getRouter() {
   final app = Router();
 
-  app.get('/', (Request request) {
-    return Response.ok('hello world');
+  app.get('/', (Request request) async {
+    return Response.ok(await File('public/index.html').readAsStringSync(),
+        headers: {HttpHeaders.contentTypeHeader: ContentType.html.toString()});
   });
 
   Future<List<String>> _getKeys(String service, String user) {
