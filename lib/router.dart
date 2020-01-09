@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:plain_github_keys/formatter.dart';
 import 'package:plain_github_keys/services/GithubKeyService.dart';
 import 'package:plain_github_keys/services/KeyService.dart';
 import 'package:plain_github_keys/shelf_exception/exception.dart';
@@ -10,13 +11,6 @@ import 'package:shelf_router/shelf_router.dart';
 
 final Map<String, KeyService Function()> services = {
   'github': () => GithubKeyService(),
-};
-
-final Map<String, String Function(List<String> keys)> formats = {
-  'text/text': (keys) => keys.join('\n'),
-  'application/json': (keys) => json.encode(keys),
-  'application/xml': (keys) => xmlFormatter(keys),
-  'text/xml': (keys) => xmlFormatter(keys),
 };
 
 Router getRouter() {
@@ -34,13 +28,10 @@ Router getRouter() {
   }
 
   Response _formatResponse(Request request, List<String> keys) {
-    final accepts = request.headers[HttpHeaders.acceptHeader];
+    final result = formatter.formatResponse(request, keys);
 
-    final use = formats.keys.firstWhere((f) => accepts.contains(f),
-        orElse: () => formats.keys.first);
-    print(use);
-
-    return Response.ok(formats[use](keys));
+    return Response.ok(result.body,
+        headers: {HttpHeaders.contentTypeHeader: result.contentType});
   }
 
   app.get('/api/keys/<user>', (Request request, String user) async {

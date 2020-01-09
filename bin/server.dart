@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:args/args.dart';
+import 'package:plain_github_keys/catchErrors.dart';
 import 'package:plain_github_keys/router.dart';
 import 'package:plain_github_keys/shelf_exception/expection_response.dart';
 import 'package:shelf/shelf.dart' as shelf;
@@ -28,6 +29,7 @@ void main(List<String> args) async {
 
   var handler = const shelf.Pipeline()
       .addMiddleware(shelf.logRequests())
+      .addMiddleware(catchErrors())
       .addMiddleware(exceptionResponse())
       .addHandler(r.handler);
 
