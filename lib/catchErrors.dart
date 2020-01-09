@@ -6,9 +6,12 @@ import 'package:shelf/shelf.dart' as shelf;
 shelf.Middleware catchErrors() {
   return (shelf.Handler handler) {
     return (shelf.Request request) {
-      return Future.sync(() => handler(request))
-          .then((response) => response)
-          .catchError((error, stackTrace) {
+      return Future.sync(() => handler(request)).then((response) {
+        if (response == null) {
+          return shelf.Response.notFound('Content not found');
+        }
+        return response;
+      }).catchError((error, stackTrace) {
         final result =
             formatter.formatResponse(request, {'message': error.toString()});
         return shelf.Response(HttpStatus.internalServerError,
