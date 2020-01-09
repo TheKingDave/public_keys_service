@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:args/args.dart';
 import 'package:plain_github_keys/router.dart';
+import 'package:plain_github_keys/shelf_exception/expection_response.dart';
 import 'package:shelf/shelf.dart' as shelf;
 import 'package:shelf/shelf_io.dart' as io;
 
@@ -27,6 +28,7 @@ void main(List<String> args) async {
 
   var handler = const shelf.Pipeline()
       .addMiddleware(shelf.logRequests())
+      .addMiddleware(exceptionResponse())
       .addHandler(r.handler);
 
   var server = await io.serve(handler, _hostname, port);
