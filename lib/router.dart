@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:plain_github_keys/formatter.dart';
@@ -6,7 +5,6 @@ import 'package:plain_github_keys/services/GithubKeyService.dart';
 import 'package:plain_github_keys/services/KeyService.dart';
 import 'package:plain_github_keys/shelf_exception/exception.dart';
 import 'package:shelf/shelf.dart';
-import 'package:shelf_response_formatter/shelf_response_formatter.dart';
 import 'package:shelf_router/shelf_router.dart';
 
 final Map<String, KeyService Function()> services = {
