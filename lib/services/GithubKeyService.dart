@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:plain_github_keys/services/KeyService.dart';
 
 class GithubKeyService implements KeyService {
+  @override
   Future<List<String>> getKeys(String user) async {
     final uri = Uri.https('api.github.com', '/users/$user/keys');
     final resp = await http.get(uri);
