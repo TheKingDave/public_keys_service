@@ -11,6 +11,7 @@ dependencies:
   shelf: ^0.7.5
   shelf_router: ^0.7.2
   http: ^0.12.0+4
+  shelf_response_formatter: ^0.2.0
 
 dev_dependencies:
   pedantic: ^1.8.0
