@@ -24,12 +24,16 @@ Router getRouter() {
     return services[service]().getKeys(user);
   }
 
+  Response _formatResponse(Request request, List<String> keys) {
+    return Response.ok(keys.join('\n'));
+  }
+
   app.get('/api/keys/<user>', (Request request, String user) async {
-    return Response.ok(json.encode(await _getKeys('github', user)));
+    return _formatResponse(request, await _getKeys('github', user));
   });
 
-  app.get('/api/keys/<service>/<user>', (Request request, String service, String user) {
-    return Response.ok('Hello $user from $service');
+  app.get('/api/keys/<service>/<user>', (Request request, String service, String user) async {
+    return _formatResponse(request, await _getKeys(service, user));
   });
 
   app.get('/api/services', (Request request) {
