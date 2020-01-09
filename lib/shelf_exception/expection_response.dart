@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:shelf/shelf.dart' as shelf;
 
 import '../formatter.dart';
+import 'exception.dart';
 
 ///A middleware that allows handlers to simply throw [HttpExceptions]
 ///instead of having to create and return a non successful [Response].
