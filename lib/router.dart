@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:plain_github_keys/custom_errors.dart';
 import 'package:plain_github_keys/formatter.dart';
 import 'package:plain_github_keys/services/GithubKeyService.dart';
 import 'package:plain_github_keys/services/KeyService.dart';
@@ -19,11 +20,17 @@ Router getRouter() {
         headers: {HttpHeaders.contentTypeHeader: ContentType.html.toString()});
   });
 
-  Future<List<String>> _getKeys(String service, String user) {
+  Future<List<String>> _getKeys(String service, String user) async {
     if (!services.containsKey(service)) {
-      throw BadRequestException({'message': 'Service does not exist'});
+      throw NoServiceException(service);
     }
-    return services[service]().getKeys(user);
+    try {
+      return await services[service]().getKeys(user);
+    } on UserDoesNotExistException catch(e) {
+      throw UserDoesNotExistException(e.service ?? service, e.user ?? user);
+    } on WrongUsernameFormatException catch(e) {
+      throw WrongUsernameFormatException(e.service ?? service, e.user ?? user);
+    }
   }
 
   Response _formatResponse(Request request, List<String> keys) {
