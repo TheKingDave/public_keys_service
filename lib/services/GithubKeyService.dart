@@ -8,6 +8,9 @@ final userNameRegex = RegExp('^[a-z\\d](?:[a-z\\d]|-(?=[a-z\\d])){0,38}\$');
 
 class GithubKeyService implements KeyService {
   @override
+  String get name => 'github';
+
+  @override
   Future<List<String>> getKeys(String user) async {
     user = user.toLowerCase();
 
