@@ -18,9 +18,14 @@ class GithubKeyService implements KeyService {
     final uri = Uri.https('api.github.com', '/users/${user}/keys');
     final resp = await http.get(uri);
 
+    final status = resp.statusCode;
+
     final decode = json.decode(resp.body);
-    if(decode is Map) {
+    if(status == 404) {
       throw UserDoesNotExistException();
+    }
+    if(status != 200) {
+      throw ServiceNotAvailableException(reason: resp);
     }
 
     final keys = decode as List<dynamic>;
