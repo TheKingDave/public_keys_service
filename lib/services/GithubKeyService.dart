@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:plain_github_keys/services/KeyService.dart';
 import 'package:plain_github_keys/shelf_exception/exception.dart';
 
-final userNameRegex = RegExp('^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}\$');
+final userNameRegex = RegExp('^[a-z\\d](?:[a-z\\d]|-(?=[a-z\\d])){0,38}\$');
 
 class GithubKeyService implements KeyService {
   @override
