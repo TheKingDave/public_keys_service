@@ -1,10 +1,19 @@
 import 'dart:io';
 
+import 'package:http/http.dart';
 import 'package:plain_github_keys/shelf_exception/exception.dart';
 
 class NoServiceException extends HttpException {
   const NoServiceException(String service):
       super(HttpStatus.badRequest, "The service '$service' does not exist");
+}
+
+class ServiceNotAvailableException extends HttpException {
+  final Response reason;
+  final String service;
+
+  const ServiceNotAvailableException({this.reason, this.service}):
+        super(HttpStatus.serviceUnavailable, "The service '$service' is not available");
 }
 
 class WrongUsernameFormatException extends HttpException {
