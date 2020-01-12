@@ -30,6 +30,13 @@ Router getRouter() {
       throw UserDoesNotExistException(e.service ?? service, e.user ?? user);
     } on WrongUsernameFormatException catch(e) {
       throw WrongUsernameFormatException(e.service ?? service, e.user ?? user);
+    } on ServiceNotAvailableException catch(e) {
+      final r = e.reason;
+      print('Service not available: ${r.statusCode} ${r.body}');
+      throw ServiceNotAvailableException(service: e.service ?? service);
+    } catch(e) {
+      print(e);
+      throw InternalServerErrorException();
     }
   }
 
