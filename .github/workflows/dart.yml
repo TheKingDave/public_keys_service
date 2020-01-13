@@ -36,7 +36,7 @@ jobs:
     
     - name: Replace + with - int version
       id: replace
-      uses: bert/replace-string-action@v1.1
+      uses: frabert/replace-string-action@v1.1
       with:
         pattern: "\\+"
         string: ${{ steps.gitversion.outputs.FullSemVer }}
