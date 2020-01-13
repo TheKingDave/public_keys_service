@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:plain_github_keys/services/KeyService.dart';
+import 'package:plain_github_keys/key_services/KeyService.dart';
 import 'package:plain_github_keys/shelf_exception/exception.dart';
 import 'package:shelf/shelf.dart';
 import 'package:shelf_router/shelf_router.dart';

@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:plain_github_keys/custom_errors.dart';
-import 'package:plain_github_keys/services/KeyService.dart';
+import 'package:plain_github_keys/key_services/KeyService.dart';
 
 final userNameRegex = RegExp('^[a-z\\d](?:[a-z\\d]|-(?=[a-z\\d])){0,38}\$');
 
