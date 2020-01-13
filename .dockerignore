@@ -1,0 +1,10 @@
+.git/
+.github/
+.idea/
+test/
+.dart_tool/
+.gitignore
+Procfile
+analysis_options.yaml
+README.md
+*.iml

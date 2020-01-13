@@ -19,3 +19,10 @@ jobs:
       run: pub get
     - name: Run tests
       run: pub run test
+    - name: Publish to Registry
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: thekingdave/public_keys_service/public_keys_service
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+        registry: docker.pkg.github.com
