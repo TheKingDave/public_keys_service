@@ -14,15 +14,30 @@ jobs:
       image:  google/dart:latest
 
     steps:
-    - uses: actions/checkout@v1
+    - name: Checkout
+      uses: actions/checkout@v1
+      
     - name: Install dependencies
       run: pub get
+      
     - name: Run tests
       run: pub run test
+    
+    - name: Fetch tags for GitVersion
+      run: git fetch --tags
+    
+    - name: Fetch master for GitVersion
+      if: github.ref != 'refs/heads/master'
+      run: git branch --create-reflog master origin/master
+    
+    - name: Get Version number
+      id: gitversion
+      uses: roryprimrose/rungitversion@v1.0.0
+      
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: thekingdave/public_keys_service/public_keys_service
+        name: thekingdave/public_keys_service/public_keys_service:${{ steps.gitversion.outputs.FullSemVer }}
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.GITHUB_TOKEN }}
         registry: docker.pkg.github.com
