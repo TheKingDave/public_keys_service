@@ -2,6 +2,6 @@ import 'package:test/test.dart';
 
 void main() {
   test('test', () async {
-    expect('test', 'test');
+    expect('test', 'test2');
   });
 }
