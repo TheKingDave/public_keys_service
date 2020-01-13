@@ -18,13 +18,8 @@ class KeyServiceRouter {
     }
   }
 
-  Router getRouter() {
+  Router get router {
     final app = Router();
-
-    app.get('/', (Request request) async {
-      return Response.ok(await File('public/index.html').readAsStringSync(),
-          headers: {HttpHeaders.contentTypeHeader: ContentType.html.toString()});
-    });
 
     Future<List<String>> _getKeys(String service, String user) async {
       if (!services.containsKey(service)) {
@@ -53,16 +48,16 @@ class KeyServiceRouter {
           headers: {HttpHeaders.contentTypeHeader: result.contentType});
     }
 
-    app.get('/api/keys/<user>', (Request request, String user) async {
+    app.get('/keys/<user>', (Request request, String user) async {
       return _formatResponse(request, await _getKeys('github', user));
     });
 
-    app.get('/api/keys/<service>/<user>',
+    app.get('/keys/<service>/<user>',
             (Request request, String service, String user) async {
           return _formatResponse(request, await _getKeys(service, user));
         });
 
-    app.get('/api/services', (Request request) {
+    app.get('/services', (Request request) {
       return _formatResponse(request, List.from(services.keys));
     });
 
