@@ -33,6 +33,14 @@ jobs:
     - name: Get Version number
       id: gitversion
       uses: roryprimrose/rungitversion@v1.0.0
+    
+    - name: Replace + with - int version
+      id: replace
+      uses: bert/replace-string-action@v1.1
+      with:
+        pattern: "\\+"
+        string: ${{ steps.gitversion.outputs.FullSemVer }}
+        replace-with: "-"
       
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@master
