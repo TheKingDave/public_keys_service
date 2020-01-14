@@ -9,6 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 <body>
+<svg xmlns="http://www.w3.org/2000/svg" display="none">
+    <symbol id="code" viewBox="0 0 24 24">
+        <path fill="none" d="M0 0h24v24H0V0z"/>
+        <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+    </symbol>
+</svg>
 
 <div id="main">
     <div class="nav">
@@ -25,6 +31,12 @@
     <h1>Public SSH keys API</h1>
 
 
+    <a id="why"><h2>Why</h2></a>
+    <p>I created this API because I wanted to update the access keys of my server with my Github keys.
+        Once there was an API endpoint to get the keys of a user in text form but that disappeared.
+        So I created this API to get those keys. While doing that I also export the keys in other formats.
+    </p>
+
     <a id="reference"><h2>Reference</h2></a>
     <div class="section">
 
@@ -39,76 +51,168 @@
             Select what format you want:
         </h3>
 
-        <p>Using the <code class="inline">format</code> query parameter</p>
-        <code>
-            <span class="get">GET</span> <span
-                class="url">https://public-keys-service.herokuapp.com/api/services?format=<span
-                class="highlight">text</span></span>
-            HTTP/1.1
-        </code>
+        <p>Using the <code class="inline">format</code> query parameter:</p>
+        <div class="code">
+            <code>
+                <span class="get">GET</span> <span
+                    class="url">https://public-keys-service.herokuapp.com/api/services?format=<span
+                    class="highlight">text</span></span>
+                HTTP/1.1
+            </code>
+            <a href="https://reqbin.com/lbuxbrv4" target="_blank" class="code_link">
+                <svg>
+                    <use xlink:href="#code"/>
+                </svg>
+            </a>
+        </div>
         <br>
-        <code>
-            <span class="get">GET</span> <span
-                class="url">https://public-keys-service.herokuapp.com/api/services?format=<span
-                class="highlight">json</span></span>
-            HTTP/1.1
-        </code>
+        <div class="code">
+            <code>
+                <span class="get">GET</span> <span
+                    class="url">https://public-keys-service.herokuapp.com/api/services?format=<span
+                    class="highlight">json</span></span>
+                HTTP/1.1
+            </code>
+            <a href="https://reqbin.com/rdl1okuq" target="_blank" class="code_link">
+                <svg>
+                    <use xlink:href="#code"/>
+                </svg>
+            </a>
+        </div>
         <br>
-        <code>
-            <span class="get">GET</span> <span
-                class="url">https://public-keys-service.herokuapp.com/api/services?format=<span
-                class="highlight">xml</span></span>
-            HTTP/1.1
-        </code>
+        <div class="code">
+            <code>
+                <span class="get">GET</span> <span
+                    class="url">https://public-keys-service.herokuapp.com/api/services?format=<span
+                    class="highlight">xml</span></span>
+                HTTP/1.1
+            </code>
+            <a href="https://reqbin.com/swts8qc7" target="_blank" class="code_link">
+                <svg>
+                    <use xlink:href="#code"/>
+                </svg>
+            </a>
+        </div>
 
-        <p>Using <code class="inline">Accept</code> header</p>
-        <code>
-            <span class="get">GET</span> <span
-                class="url">https://public-keys-service.herokuapp.com/api/services</span>
-            HTTP/1.1<br>
-            Accept: <span class="highlight">text/text</span>
-        </code>
+        <p>Using <code class="inline">Accept</code> header:</p>
+        <div class="code">
+            <code>
+                <span class="get">GET</span> <span
+                    class="url">https://public-keys-service.herokuapp.com/api/services</span>
+                HTTP/1.1<br>
+                Accept: <span class="highlight">text/text</span>
+            </code>
+            <a href="https://reqbin.com/gldihpy0" target="_blank" class="code_link">
+                <svg>
+                    <use xlink:href="#code"/>
+                </svg>
+            </a>
+        </div>
         <br>
-        <code>
-            <span class="get">GET</span> <span
-                class="url">https://public-keys-service.herokuapp.com/api/services</span>
-            HTTP/1.1<br>
-            Accept: <span class="highlight">application/json</span>
-        </code>
+        <div class="code">
+            <code>
+                <span class="get">GET</span> <span
+                    class="url">https://public-keys-service.herokuapp.com/api/services</span>
+                HTTP/1.1<br>
+                Accept: <span class="highlight">application/json</span>
+            </code>
+            <a href="https://reqbin.com/p2sbs1ts" target="_blank" class="code_link">
+                <svg>
+                    <use xlink:href="#code"/>
+                </svg>
+            </a>
+        </div>
         <br>
-        <code>
-            <span class="get">GET</span> <span
-                class="url">https://public-keys-service.herokuapp.com/api/services</span>
-            HTTP/1.1<br>
-            Accept: <span class="highlight">text/xml</span>
-        </code>
+        <div class="code">
+            <code>
+                <span class="get">GET</span> <span
+                    class="url">https://public-keys-service.herokuapp.com/api/services</span>
+                HTTP/1.1<br>
+                Accept: <span class="highlight">text/xml</span>
+            </code>
+            <a href="https://reqbin.com/xhipxwfv" target="_blank" class="code_link">
+                <svg>
+                    <use xlink:href="#code"/>
+                </svg>
+            </a>
+        </div>
         <br>
-        <code>
-            <span class="get">GET</span> <span
-                class="url">https://public-keys-service.herokuapp.com/api/services</span>
-            HTTP/1.1<br>
-            Accept: <span class="highlight">application/xml</span>
-        </code>
+        <div class="code">
+            <code>
+                <span class="get">GET</span> <span
+                    class="url">https://public-keys-service.herokuapp.com/api/services</span>
+                HTTP/1.1<br>
+                Accept: <span class="highlight">application/xml</span>
+            </code>
+            <a href="https://reqbin.com/dapdlrcr" target="_blank" class="code_link">
+                <svg>
+                    <use xlink:href="#code"/>
+                </svg>
+            </a>
+        </div>
 
         <h3>Get all available services</h3>
-        <code>
-            <span class="get">GET</span> <span class="url">https://public-keys-service.herokuapp.com/api/<span
-                class="highlight">services</span></span>
-            HTTP/1.1
-        </code>
+        <div class="code">
+            <code>
+                <span class="get">GET</span> <span class="url">https://public-keys-service.herokuapp.com/api/<span
+                    class="highlight">services</span></span>
+                HTTP/1.1
+            </code>
+            <a href="https://reqbin.com/e8h0blyl" target="_blank" class="code_link">
+                <svg>
+                    <use xlink:href="#code"/>
+                </svg>
+            </a>
+        </div>
 
         <h3>Get keys for a user from a specific service</h3>
-        <code>
-            <span class="get">GET</span> <span class="url">https://public-keys-service.herokuapp.com/api/<span
-                class="highlight">&lt;service&gt;</span>/<span class="highlight">&lt;username&gt;</span></span>
-            HTTP/1.1
-        </code>
+        <div class="code">
+            <code>
+                <span class="get">GET</span> <span class="url">https://public-keys-service.herokuapp.com/api/keys/<span
+                    class="highlight">github</span>/<span class="highlight">thekingdave</span></span>
+                HTTP/1.1
+            </code>
+            <a href="https://reqbin.com/9mep4uyj" target="_blank" class="code_link">
+                <svg>
+                    <use xlink:href="#code"/>
+                </svg>
+            </a>
+        </div>
+
+        <h3>Get keys for a user from default service</h3>
+        <div class="code">
+            <code>
+                <span class="get">GET</span> <span class="url">https://public-keys-service.herokuapp.com/api/keys/<span
+                    class="highlight">thekingdave</span></span>
+                HTTP/1.1
+            </code>
+            <a href="https://reqbin.com/anhgwu1u" target="_blank" class="code_link">
+                <svg>
+                    <use xlink:href="#code"/>
+                </svg>
+            </a>
+        </div>
     </div>
 
     <a id="services"><h2>Services</h2></a>
     <div class="section">
-
+        <ul>
+            <li>github (<a href="https://github.com" target="_blank">github.com</a>)</li>
+        </ul>
     </div>
+
+    <a id="disclaimer"><h2>Disclaimer</h2></a>
+    <p>
+        This API is not a high availability API. There can be down times.
+        Of course I will try to make them short and few.
+        This project was developed in my free time. There could be bugs.
+        If you find one please report it to me.
+    </p>
+    <p>
+        David Langheiter&lt;david@langheiter.com&gt;
+        <a href="https://davidlangheiter.com">https://davidlangheiter.com</a>
+    </p>
+    <p>&copy; David Langheiter 2020</p>
 </div>
 </body>
 </html>
