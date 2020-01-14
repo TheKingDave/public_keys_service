@@ -2,9 +2,113 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>public_keys_service</title>
+    <title>Public Keys API</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 <body>
-<h1>public_keys_service</h1>
+
+<div id="main">
+    <div class="nav">
+        <div class="icon">
+            <div></div>
+        </div>
+
+        <div class="links">
+            <a href="#reference">Reference</a>
+            <a href="#services">Services</a>
+        </div>
+    </div>
+
+    <h1>Public SSH keys API</h1>
+
+
+    <a id="reference"><h2>Reference</h2></a>
+    <div class="section">
+
+        <p>All api urls can return different formats:</p>
+        <ul>
+            <li>text (default)</li>
+            <li>json</li>
+            <li>xml</li>
+        </ul>
+
+        <h3>
+            Select what format you want:
+        </h3>
+
+        <p>Using the <code class="inline">format</code> query parameter</p>
+        <code>
+            <span class="get">GET</span> <span
+                class="url">https://public-keys-service.herokuapp.com/api/services?format=<span
+                class="highlight">text</span></span>
+            HTTP/1.1
+        </code>
+        <br>
+        <code>
+            <span class="get">GET</span> <span
+                class="url">https://public-keys-service.herokuapp.com/api/services?format=<span
+                class="highlight">json</span></span>
+            HTTP/1.1
+        </code>
+        <br>
+        <code>
+            <span class="get">GET</span> <span
+                class="url">https://public-keys-service.herokuapp.com/api/services?format=<span
+                class="highlight">xml</span></span>
+            HTTP/1.1
+        </code>
+
+        <p>Using <code class="inline">Accept</code> header</p>
+        <code>
+            <span class="get">GET</span> <span
+                class="url">https://public-keys-service.herokuapp.com/api/services</span>
+            HTTP/1.1<br>
+            Accept: <span class="highlight">text/text</span>
+        </code>
+        <br>
+        <code>
+            <span class="get">GET</span> <span
+                class="url">https://public-keys-service.herokuapp.com/api/services</span>
+            HTTP/1.1<br>
+            Accept: <span class="highlight">application/json</span>
+        </code>
+        <br>
+        <code>
+            <span class="get">GET</span> <span
+                class="url">https://public-keys-service.herokuapp.com/api/services</span>
+            HTTP/1.1<br>
+            Accept: <span class="highlight">text/xml</span>
+        </code>
+        <br>
+        <code>
+            <span class="get">GET</span> <span
+                class="url">https://public-keys-service.herokuapp.com/api/services</span>
+            HTTP/1.1<br>
+            Accept: <span class="highlight">application/xml</span>
+        </code>
+
+        <h3>Get all available services</h3>
+        <code>
+            <span class="get">GET</span> <span class="url">https://public-keys-service.herokuapp.com/api/<span
+                class="highlight">services</span></span>
+            HTTP/1.1
+        </code>
+
+        <h3>Get keys for a user from a specific service</h3>
+        <code>
+            <span class="get">GET</span> <span class="url">https://public-keys-service.herokuapp.com/api/<span
+                class="highlight">&lt;service&gt;</span>/<span class="highlight">&lt;username&gt;</span></span>
+            HTTP/1.1
+        </code>
+    </div>
+
+    <a id="services"><h2>Services</h2></a>
+    <div class="section">
+
+    </div>
+</div>
 </body>
 </html>
