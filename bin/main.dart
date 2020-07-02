@@ -7,7 +7,6 @@ import 'package:plain_github_keys/shelf_exception/expection_response.dart';
 import 'package:shelf/shelf.dart' as shelf;
 import 'package:shelf/shelf_io.dart' as io;
 
-// For Google Cloud Run, set _hostname to '0.0.0.0'.
 const _hostname = '0.0.0.0';
 
 void main(List<String> args) async {
@@ -15,7 +14,7 @@ void main(List<String> args) async {
   var result = parser.parse(args);
 
   // For Google Cloud Run, we respect the PORT environment variable
-  var portStr = result['port'] ?? Platform.environment['PORT'] ?? '8080';
+  var portStr = result['port'] ?? Platform.environment['PORT'] ?? '80';
   var port = int.tryParse(portStr);
 
   if (port == null) {

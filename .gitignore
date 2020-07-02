@@ -1,6 +1,8 @@
 # Created by https://www.gitignore.io/api/dart,intellij
 # Edit at https://www.gitignore.io/?templates=dart,intellij
 
+.idea/
+
 ### Dart ###
 # See https://www.dartlang.org/guides/libraries/private-files
 
