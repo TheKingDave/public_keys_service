@@ -9,17 +9,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 <body>
-<svg xmlns="http://www.w3.org/2000/svg" display="none">
-    <symbol id="code" viewBox="0 0 24 24">
-        <path fill="none" d="M0 0h24v24H0V0z"/>
-        <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
-    </symbol>
-</svg>
+
+<script>
+    const baseHost = window.location.href;
+</script>
 
 <div id="main">
     <div class="nav">
         <div class="icon">
-            <div></div>
+            <img src="http://gravatar.com/avatar/43b7f85604aaba589180c506ce4f1d06" alt="Creator Icon">
         </div>
 
         <div class="links">
@@ -55,7 +53,7 @@
         <div class="code">
             <code>
                 <span class="get">GET</span> <span
-                    class="url">https://public-keys-service.herokuapp.com/api/services?format=<span
+                    class="url"><script>document.write(baseHost)</script>/api/services?format=<span
                     class="highlight">text</span></span>
                 HTTP/1.1
             </code>
@@ -69,7 +67,7 @@
         <div class="code">
             <code>
                 <span class="get">GET</span> <span
-                    class="url">https://public-keys-service.herokuapp.com/api/services?format=<span
+                    class="url">/api/services?format=<span
                     class="highlight">json</span></span>
                 HTTP/1.1
             </code>
@@ -83,7 +81,7 @@
         <div class="code">
             <code>
                 <span class="get">GET</span> <span
-                    class="url">https://public-keys-service.herokuapp.com/api/services?format=<span
+                    class="url"><script>document.write(baseHost)</script>/api/services?format=<span
                     class="highlight">xml</span></span>
                 HTTP/1.1
             </code>
@@ -98,7 +96,7 @@
         <div class="code">
             <code>
                 <span class="get">GET</span> <span
-                    class="url">https://public-keys-service.herokuapp.com/api/services</span>
+                    class="url"><script>document.write(baseHost)</script>/api/services</span>
                 HTTP/1.1<br>
                 Accept: <span class="highlight">text/text</span>
             </code>
@@ -112,7 +110,7 @@
         <div class="code">
             <code>
                 <span class="get">GET</span> <span
-                    class="url">https://public-keys-service.herokuapp.com/api/services</span>
+                    class="url"><script>document.write(baseHost)</script>/api/services</span>
                 HTTP/1.1<br>
                 Accept: <span class="highlight">application/json</span>
             </code>
@@ -126,7 +124,7 @@
         <div class="code">
             <code>
                 <span class="get">GET</span> <span
-                    class="url">https://public-keys-service.herokuapp.com/api/services</span>
+                    class="url"><script>document.write(baseHost)</script>/api/services</span>
                 HTTP/1.1<br>
                 Accept: <span class="highlight">text/xml</span>
             </code>
@@ -140,7 +138,7 @@
         <div class="code">
             <code>
                 <span class="get">GET</span> <span
-                    class="url">https://public-keys-service.herokuapp.com/api/services</span>
+                    class="url"><script>document.write(baseHost)</script>/api/services</span>
                 HTTP/1.1<br>
                 Accept: <span class="highlight">application/xml</span>
             </code>
@@ -154,7 +152,7 @@
         <h3>Get all available services</h3>
         <div class="code">
             <code>
-                <span class="get">GET</span> <span class="url">https://public-keys-service.herokuapp.com/api/<span
+                <span class="get">GET</span> <span class="url"><script>document.write(baseHost)</script>/api/<span
                     class="highlight">services</span></span>
                 HTTP/1.1
             </code>
@@ -168,7 +166,7 @@
         <h3>Get keys for a user from a specific service</h3>
         <div class="code">
             <code>
-                <span class="get">GET</span> <span class="url">https://public-keys-service.herokuapp.com/api/keys/<span
+                <span class="get">GET</span> <span class="url"><script>document.write(baseHost)</script>/api/keys/<span
                     class="highlight">github</span>/<span class="highlight">thekingdave</span></span>
                 HTTP/1.1
             </code>
@@ -182,7 +180,7 @@
         <h3>Get keys for a user from default service</h3>
         <div class="code">
             <code>
-                <span class="get">GET</span> <span class="url">https://public-keys-service.herokuapp.com/api/keys/<span
+                <span class="get">GET</span> <span class="url"><script>document.write(baseHost)</script>/api/keys/<span
                     class="highlight">thekingdave</span></span>
                 HTTP/1.1
             </code>
@@ -197,7 +195,11 @@
     <a id="services"><h2>Services</h2></a>
     <div class="section">
         <ul>
-            <li>github (<a href="https://github.com" target="_blank">github.com</a>)</li>
+            <li>github
+                (<a href="https://github.com">github.com</a>,
+                <a href="https://docs.github.com/en/rest/reference/users#list-public-keys-for-a-user">API
+                    documentation</a>)
+            </li>
         </ul>
     </div>
 

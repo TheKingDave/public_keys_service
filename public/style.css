@@ -1,15 +1,20 @@
+* {
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
 }
 
-* {
-    font-family: 'Roboto', sans-serif;
-}
-
 h1, h2, h3, h4, h5, h6 {
     font-weight: normal;
     margin-bottom: 0;
+}
+
+h3 {
+    margin-bottom: 8px;
 }
 
 #main {
@@ -31,9 +36,9 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
 }
 
-.icon {
-    height: 56px;
-    width: 56px;
+.icon img{
+    height: 80px;
+    width: 80px;
     border-radius: 100%;
     background-color: maroon;
 }
