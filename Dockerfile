@@ -27,6 +27,10 @@ COPY --from=dart-runtime /lib/x86_64-linux-gnu/libpthread.so.0 /lib/x86_64-linux
 COPY --from=dart-runtime /lib/x86_64-linux-gnu/libdl.so.2 /lib/x86_64-linux-gnu/libdl.so.2
 COPY --from=dart-runtime /lib/x86_64-linux-gnu/librt.so.1 /lib/x86_64-linux-gnu/librt.so.1
 
+WORKDIR /app
+
+COPY public/ public/
+
 # Copy generated library
 COPY --from=dart-runtime /app/bin/keys_linux /app/bin/keys_linux
 
