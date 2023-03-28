@@ -43,7 +43,7 @@ jobs:
         replace-with: "-"
 
     - name: Publish to Registry
-      uses: elgohr/Publish-Docker-Github-Action@master
+      uses: elgohr/Publish-Docker-Github-Action@v5
       with:
         name: thekingdave/public_keys_service/public_keys_service:${{ steps.replace.outputs.replaced }}
         username: ${{ secrets.DOCKER_USERNAME }}
